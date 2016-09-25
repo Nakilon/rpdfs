@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/rpdfs.svg)](http://badge.fury.io/rb/rpdfs)
+
 # How it works
 
 Having `gem wkhtmltopdf-binary` under the hood it is supposed to give you the easy-to-use DSL.
