@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/rpdfs"
+extend RPDFS
+load ARGV[0]
+File.write ARGV[1], last_generated_html
