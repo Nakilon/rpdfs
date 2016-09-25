@@ -1,6 +1,6 @@
 # How it works
 
-Having `gem wkhtmltopdf-binary` under the hood it should give you the easy-to-use DSL.
+Having `gem wkhtmltopdf-binary` under the hood it is supposed to give you the easy-to-use DSL.
 
 # How to use
 
