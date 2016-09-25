@@ -3,4 +3,19 @@
 require_relative "../lib/rpdfs"
 extend RPDFS
 load ARGV[0]
-File.write ARGV[1], last_generated_html
+
+require "tempfile"
+html_file = Tempfile.new ["html", ".html"] # without this extension wkhtmltopdf throws "Error: Failed loading page"
+File.write html_file.path, last_generated_html
+
+# the following awkward `--zoom 2.95` is because of https://github.com/wkhtmltopdf/wkhtmltopdf/issues/3140
+
+require "open3"
+Open3.popen3("wkhtmltopdf -q --zoom 2.95 --page-width 400 --page-height 300 --margin-top 0 --margin-bottom 0 --margin-left 0 --margin-right 0 --disable-smart-shrinking #{html_file.path} #{ARGV[1]}") do |_, stdout, stderr, _|
+  if not (out = stdout.read).empty?
+    abort "UNKNOWN wkhtmltopdf ERROR OCCURED: STDOUT had to be empty, but was:\n#{out.inspect}"
+  end
+  if not (err = stderr.read).empty?
+    abort "UNKNOWN wkhtmltopdf ERROR OCCURED:\n#{err}"
+  end
+end

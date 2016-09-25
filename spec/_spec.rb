@@ -18,7 +18,8 @@ describe do
     pdf_file = Tempfile.new "pdf"
     File.write rpdfs_file.path, "compile_slides 123, 234"
     expect(`#{__dir__()}/../bin/rpdfs #{rpdfs_file.path} #{pdf_file.path}`).to eq("")
-    expect(File.read pdf_file.path).to eq("123234")
+    require "pdf-reader"
+    expect(PDF::Reader.new(pdf_file.path).pages.first.text).to eq("123234")
   end
 
 end
