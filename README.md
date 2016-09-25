@@ -12,7 +12,7 @@ rpdfs input.rpdfs output.pdf
 
 # The .rpdfs format
 
-**SINCE IT'S JUST A DRAFT, THERE IS NO TO READ HERE YET**
+**SINCE IT'S JUST A DRAFT, THERE IS NOTHING TO READ HERE YET**
 
 Actually I plan this README to become .PDF instead of .MD
 
