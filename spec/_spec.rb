@@ -1,5 +1,8 @@
 require "pp"
 
+require "bundler/setup"
+Bundler.setup
+
 # require_relative "../lib/rpdfs"
 
 
